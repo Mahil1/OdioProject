@@ -58,8 +58,16 @@ WebDriver driver;
     @FindBy(xpath="//div[contains(@class,'dashboard-top-seller-card')]")
     List<WebElement> topBottomCaller;
     
-    @FindBy(xpath="(//*[text()='209'])[1]")
-    WebElement callerDistributionChart1;
+  //  @FindBy(xpath="(//*[text()='209'])[1]")
+  //  WebElement callScore1;
+    
+    @FindBy(xpath="//*[local-name()='svg']//*[name()='g' and @seriesName='NoxxofxCalls']//*[name()='path']")
+    List<WebElement> callsScore1;
+    
+    @FindBy(xpath="//span[text()='Conversations']")
+	WebElement conversationButton;
+    
+    
     
     public String dashboardPageMainHeading() {
     	return dashboardMainHeading.getText();
@@ -113,9 +121,21 @@ WebDriver driver;
     	return topBottomCaller;
     }
     
-    public String callerDistributionChart1() {
-    	return callerDistributionChart1.getText();
+  //  public String call1() {
+  //  	return callScore1.getText();
+  //  }
+    
+    public List<WebElement> callDistribution() {
+    	return callsScore1;
     }
+    
+    public ConversationPage clickConversationButton() {
+    	 conversationButton.click();
+    	 ConversationPage conversationPage=new ConversationPage(driver);
+ 		return conversationPage;
+    }
+    
+    
    
     
     
